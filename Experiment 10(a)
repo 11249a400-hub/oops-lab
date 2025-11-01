@@ -1,0 +1,64 @@
+*/
+------------------------------------------------------------------------------------------
+Experiment 10(a)
+To implement the use of unary operator overloading 
+------------------------------------------------------------------------------------------
+Aim:
+To implement unary operator overloading in C++ to customize 
+the behavior of unary operators for class objects.
+------------------------------------------------------------------------------------------
+Algorithm:
+Define a class with data members.
+Overload the unary operator as a member function or friend function.
+Implement the operator overloading function to perform specific operations on object data.
+Create objects of the class.
+Use the overloaded unary operator with objects.
+Display or return the result.
+--------------------------------------------------------------------------------------------
+Code:
+#include <iostream>
+using namespace std;
+
+class Number {
+private:
+    int num;
+public:
+    Number() : num(0) {}
+    Number(int n) : num(n) {}
+
+    // Overload unary minus operator
+    Number operator-() {
+        Number temp;
+        temp.num = -num;
+        return temp;
+    }
+
+    void display() {
+        cout << "Number: " << num << endl;
+    }
+};
+
+int main() {
+    Number n1(10);
+    Number n2;
+
+    cout << "Original ";
+    n1.display();
+
+    n2 = -n1;  // Use overloaded unary minus operator
+
+    cout << "After unary minus operator ";
+    n2.display();
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+output:
+Original Number: 10
+After unary minus operator Number: -10
+--------------------------------------------------------------------------------------------
+Result:
+The unary minus operator is overloaded to negate the value of the object.
+Applying the operator on n1 creates a new object n2 with negated value.
+This shows how unary operators can be customized for user-defined types in C++.
+
