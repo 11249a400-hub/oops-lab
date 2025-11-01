@@ -1,19 +1,19 @@
 */
 ------------------------------------------------------------------------------------------
 Experiment 10(a)
-To implement the use of unary operator overloading 
+Overloading the unary minus (-) operator
 ------------------------------------------------------------------------------------------
 Aim:
-To implement unary operator overloading in C++ to customize 
-the behavior of unary operators for class objects.
+To overload the unary minus (-) operator for a class to perform negation on its object data.
 ------------------------------------------------------------------------------------------
 Algorithm:
-Define a class with data members.
-Overload the unary operator as a member function or friend function.
-Implement the operator overloading function to perform specific operations on object data.
+Define a class with a data member to store a value.
+Overload the unary minus operator as a member function.
+Inside the operator function, 
+negate the object data and return a new object with the negated value.
 Create objects of the class.
-Use the overloaded unary operator with objects.
-Display or return the result.
+Use the overloaded unary minus operator on an object.
+Display the original and negated values.
 --------------------------------------------------------------------------------------------
 Code:
 #include <iostream>
@@ -26,11 +26,8 @@ public:
     Number() : num(0) {}
     Number(int n) : num(n) {}
 
-    // Overload unary minus operator
     Number operator-() {
-        Number temp;
-        temp.num = -num;
-        return temp;
+        return Number(-num);
     }
 
     void display() {
@@ -39,7 +36,7 @@ public:
 };
 
 int main() {
-    Number n1(10);
+    Number n1(15);
     Number n2;
 
     cout << "Original ";
@@ -47,18 +44,19 @@ int main() {
 
     n2 = -n1;  // Use overloaded unary minus operator
 
-    cout << "After unary minus operator ";
+    cout << "Negated ";
     n2.display();
 
     return 0;
 }
 --------------------------------------------------------------------------------------------
 output:
-Original Number: 10
-After unary minus operator Number: -10
+Original Number: 15
+Negated Number: -15
 --------------------------------------------------------------------------------------------
 Result:
-The unary minus operator is overloaded to negate the value of the object.
-Applying the operator on n1 creates a new object n2 with negated value.
-This shows how unary operators can be customized for user-defined types in C++.
+The unary minus (-) operator is overloaded successfully to negate the value of the object.
+The operator returns a new object with the negated value.
+This shows the customization of unary operators for user-defined types in C++.
+
 
