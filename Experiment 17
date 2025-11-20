@@ -1,0 +1,78 @@
+Experiment 17
+To implement the user if multilevel inheritance 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To write a C++ program to implement multilevel inheritance, where one class is derived from another, forming a chain of inheritance.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create a Base class (Class A) with data members and a function.
+3. Create a Derived class (Class B) that inherits from Class A.
+4. Create another Derived class (Class C) that inherits from Class B.
+5. In each class, write functions to access and display its own members.
+6. Create an object of the last derived class (Class C).
+7. Using the object, call:
+Class A function
+Class B function
+Class C function
+8. Display the results.
+9. End the program.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source Code (C++):
+
+#include <iostream>
+using namespace std;
+
+// Base Class
+class A {
+public:
+    void showA() {
+        cout << "This is Class A (Base Class)" << endl;
+    }
+};
+
+// Derived Class from A
+class B : public A {
+public:
+    void showB() {
+        cout << "This is Class B (Derived from A)" << endl;
+    }
+};
+
+// Derived Class from B
+class C : public B {
+public:
+    void showC() {
+        cout << "This is Class C (Derived from B)" << endl;
+    }
+};
+
+int main() {
+    C obj;
+
+    cout << "--- Multilevel Inheritance Output ---" << endl;
+
+    obj.showA();  // From Base Class A
+    obj.showB();  // From Derived Class B
+    obj.showC();  // From Derived Class C
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+--- Multilevel Inheritance Output ---
+This is Class A (Base Class)
+This is Class B (Derived from A)
+This is Class C (Derived from B)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+The program successfully demonstrates multilevel inheritance in C++, where:
+Class B inherits from A
+Class C inherits from B
+Object of class C can access members of A, B, and C
+
+
