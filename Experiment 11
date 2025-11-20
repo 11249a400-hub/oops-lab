@@ -1,0 +1,77 @@
+Experiment 11
+
+ To implement the use of Binary operator overloading 
+------------------------------------------------------------------------------------------------------
+AIM:
+
+To implement and demonstrate binary operator overloading in C++ by overloading the +
+operator to add two objects of a class.
+------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create a class (e.g., Complex, Distance, etc.).
+3. Declare data members.
+4. Define a parameterized constructor to initialize the values.
+5. Overload the binary operator (+) using a member function:
+Create a temporary object.
+Add the data members of invoking object and passed object.
+Return the temporary object.
+6. In main() create two objects.
+------------------------------------------------------------------------------------------------------
+Code:
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+    int real, imag;
+
+public:
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imag = i;
+    }
+
+    // Overloading binary operator +
+    Complex operator + (Complex obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(5, 7);
+    Complex c2(3, 4);
+
+    Complex c3 = c1 + c2; // Using overloaded operator
+
+    cout << "First Complex Number: ";
+    c1.display();
+    cout << "Second Complex Number: ";
+    c2.display();
+
+    cout << "Result (c1 + c2): ";
+    c3.display();
+
+    return 0;
+}
+------------------------------------------------------------------------------------------------------
+output:
+
+First Complex Number: 5 + 7i
+Second Complex Number: 3 + 4i
+Result (c1 + c2): 8 + 11i
+------------------------------------------------------------------------------------------------------
+Result:
+Binary operator overloading was successfully implemented using the + operator to 
+add two complex number objects. The program demonstrates how operator overloading enhances 
+readability and allows user-defined types to behave like built-in types.
+------------------------------------------------------------------------------------------------------
+
