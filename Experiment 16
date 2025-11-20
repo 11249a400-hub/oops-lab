@@ -1,0 +1,88 @@
+Experiment 16
+
+✅ Multiple Inheritance in C++
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Aim:
+
+To write a C++ program to implement multiple inheritance, where a derived class inherits features from more than one base class.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create two base classes (Base1 and Base2) each having:
+Data members
+Member functions
+3. Create a derived class using multiple inheritance:
+class Derived : public Base1, public Base2
+4. Inside the derived class, define a function to display inherited values.
+5. Create an object of the derived class in main().
+6. Call functions of both base classes and derived class to show multiple inheritance.
+7. End the program.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------&---------------------------------------------------------------------
+Source Code (C++):
+
+#include <iostream>
+using namespace std;
+
+// Base Class 1
+class Base1 {
+protected:
+    int x;
+public:
+    void getX() {
+        x = 10;
+    }
+};
+
+// Base Class 2
+class Base2 {
+protected:
+    int y;
+public:
+    void getY() {
+        y = 20;
+    }
+};
+
+// Derived Class using Multiple Inheritance
+class Derived : public Base1, public Base2 {
+public:
+    void display() {
+        cout << "Value of x (from Base1): " << x << endl;
+        cout << "Value of y (from Base2): " << y << endl;
+        cout << "Sum = " << x + y << endl;
+    }
+};
+
+int main() {
+    Derived d;
+
+    d.getX();  // From Base1
+    d.getY();  // From Base2
+    d.display();  // From Derived
+
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+Value of x (from Base1): 10
+Value of y (from Base2): 20
+Sum = 30
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+The program successfully demonstrates multiple inheritance in C++, where the derived class inherits data and functions from two base classes. The derived class accesses and combines the values inherited from both base classes.
+
+
+---
+
+If you want, I can also give:
+
+✔ Multiple inheritance diagram
+
+✔ Types of inheritance (for 10 marks)
+
+✔ PDF version
+Just tell me!
