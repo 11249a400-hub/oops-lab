@@ -1,0 +1,118 @@
+Experiment 15
+
+To implement the  use of the single public and private inheritance.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To write a C++ program to implement single inheritance using public and private inheritance and observe how memberare inherited in each case.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create a base class with:
+private members
+protected members
+public members
+3. Create a derived class using:
+public inheritance
+private inheritance
+4. Inside the derived class:
+Try accessing base class members and observe which are accessible.
+5. Create objects of the derived class.
+6. Call functions to show:
+What is accessible in public inheritance
+What is accessible in private inheritance
+7. Display the results.
+8. End the program.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Source Code (C++):
+
+
+#include <iostream>
+using namespace std;
+
+class Base {
+private:
+    int a;        // Not inherited
+protected:
+    int b;        // Inherited but not accessible directly in main
+public:
+    int c;        // Inherited and accessible based on mode
+
+    Base() {
+        a = 10;
+        b = 20;
+        c = 30;
+    }
+
+    void showBase() {
+        cout << "Base class: a=" << a << " b=" << b << " c=" << c << endl;
+    }
+};
+
+// ---------- Public Inheritance ----------
+class DerivedPublic : public Base {
+public:
+    void show() {
+        // a not accessible
+        cout << "DerivedPublic accessing b = " << b << endl;
+        cout << "DerivedPublic accessing c = " << c << endl;
+    }
+};
+
+// ---------- Private Inheritance ----------
+class DerivedPrivate : private Base {
+public:
+    void show() {
+        // b and c become private in this class
+        cout << "DerivedPrivate accessing b = " << b << endl;
+        cout << "DerivedPrivate accessing c = " << c << endl;
+    }
+};
+
+int main() {
+    DerivedPublic dp;
+    DerivedPrivate dpr;
+
+    cout << "----- Public Inheritance -----" << endl;
+    dp.show();        // b & c accessible
+    cout << "Accessing public member c from object = " << dp.c << endl;
+
+    cout << "\n----- Private Inheritance -----" << endl;
+    dpr.show();       // Allowed through function
+    // dpr.c; // ❌ Not allowed (private)
+
+    return 0;
+}
+------------------------------------------------------------------------------------
+Output
+
+----- Public Inheritance -----
+DerivedPublic accessing b = 20
+DerivedPublic accessing c = 30
+Accessing public member c from object = 30
+
+----- Private Inheritance -----
+DerivedPrivate accessing b = 20
+DerivedPrivate accessing c = 30
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Result
+
+The program successfully demonstrates single inheritance in two modes:
+
+
+
+public and protected members of Base → become private in DerivedPrivate
+
+Cannot be accessed from an object of the derived class.
+
+
+Thus, the behavior of inheritance changes based on the mode used.
+
+
+---
+
+If you want, I can also give: 📌 Diagram for inheritance
+📌 Table comparison of public vs private inheritance
+📌 PDF version
+Just tell me!
