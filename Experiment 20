@@ -1,0 +1,71 @@
+Experiment 20
+
+✅ Implementation of Pure Virtual Function using Template
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To implement a C++ class template along with a pure virtual function inside an abstract base class, and demonstrate runtime polymorphism with templates.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create an abstract base class template using:
+template <class T> class Base
+3. Inside the class, declare a pure virtual function such as:
+virtual void display(T a, T b) = 0;
+4. Derive a child class from the template base class and override the pure virtual function.
+5. In the main() function:
+Create a pointer of base class template type.
+Create an object of derived class template.
+Assign derived class object to base pointer.
+6. Call the overridden function using the base class pointer to achieve runtime polymorphism.
+7. Display the results.
+8. End the program.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Program (C++ Pure Virtual Function with Template):
+
+#include <iostream>
+using namespace std;
+
+// Template Base Class with Pure Virtual Function
+template <class T>
+class Operation {
+public:
+    virtual void display(T a, T b) = 0;  // Pure virtual function
+};
+
+// Derived Template Class
+template <class T>
+class Addition : public Operation<T> {
+public:
+    void display(T a, T b) {
+        cout << "Addition: " << a + b << endl;
+    }
+};
+
+int main() {
+    // Base class pointer using int
+    Operation<int> *ptr;
+    Addition<int> obj1;
+
+    ptr = &obj1;
+    ptr->display(10, 20);
+
+    // Base class pointer using float
+    Operation<float> *ptr2;
+    Addition<float> obj2;
+
+    ptr2 = &obj2;
+    ptr2->display(3.5, 2.5);
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+Addition: 30
+Addition: 6
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+The implementation of a pure virtual function within a template class is successfully demonstrated. The program shows how abstract classes, virtual functions, templates, and runtime polymorphism can be combined in C++.
