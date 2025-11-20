@@ -1,0 +1,84 @@
+experiment 14
+compartion operator overloading 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To write a C++ program to overload the comparison operator (==) to compare two objects based on their data values.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create a class with required data members (e.g., int a).
+3. Write a constructor to initialize the object.
+4. Overload the comparison operator (==) inside the class.
+5. In the overloaded operator:
+Compare the data of the current object (this->a) with the passed object (obj.a).
+Return true if equal, otherwise false.
+6. In main():
+Create two objects with values.
+Compare them using the overloaded operator (obj1 == obj2).
+7. Display whether the objects are equal or not.
+8. End the program.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source Code :
+
+#include <iostream>
+using namespace std;
+
+class Compare {
+    int value;
+
+public:
+    // Constructor
+    Compare(int v = 0) {
+        value = v;
+    }
+
+    // Overloading == operator
+    bool operator == (const Compare &obj) {
+        return value == obj.value;
+    }
+
+    // Display values
+    void display() {
+        cout << "Value = " << value << endl;
+    }
+};
+
+int main() {
+    Compare c1(10);
+    Compare c2(10);
+    Compare c3(20);
+
+    cout << "Comparing c1 and c2: ";
+    if (c1 == c2)
+        cout << "Equal" << endl;
+    else
+        cout << "Not Equal" << endl;
+
+    cout << "Comparing c1 and c3: ";
+    if (c1 == c3)
+        cout << "Equal" << endl;
+    else
+        cout << "Not Equal" << endl;
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sample Output:
+
+Comparing c1 and c2: Equal
+Comparing c1 and c3: Not Equal.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+The program successfully overloads the comparison operator (==) and compares two objects based on their data values. The output correctly displays whether the objects are equal or not.
+
+
+---
+
+If you want: ✔ Overloading <, >, <=, >=
+✔ User-defined class comparing strings
+✔ PDF format
+
+Just tell me!
