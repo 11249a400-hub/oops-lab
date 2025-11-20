@@ -1,0 +1,60 @@
+Experiment 13
+
+✅ To Implement Assignment and Comparison of Two Strings in C++
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+To write a C++ program to implement string assignment and string comparison using built-in string functions or operators.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Declare two string variables.
+3. Assign a value to the first string using the assignment (=) operator.
+4. Assign a value to the second string.
+5. Compare the two strings using:
+== operator (checks equality)
+< or > operator (lexicographical comparison)
+6. Display whether the strings are:
+Equal
+First string is greater
+First string is smaller
+7. End the program.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source Code :
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str1, str2;
+
+    // String Assignment
+    str1 = "Hello";
+    str2 = "World";
+
+    cout << "String 1: " << str1 << endl;
+    cout << "String 2: " << str2 << endl;
+
+    // String Comparison
+    if (str1 == str2) {
+        cout << "Both strings are equal." << endl;
+    }
+    else if (str1 > str2) {
+        cout << "String 1 is greater than String 2." << endl;
+    }
+    else {
+        cout << "String 1 is smaller than String 2." << endl;
+    }
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sample Output:
+
+String 1: Hello
+String 2: World
+String 1 is smaller than String 2.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+The program successfully implements string assignment using the = operator and string comparison using relational operators (==, <, >). The correct result of comparison is displayed based on lexicographical order.
