@@ -1,0 +1,67 @@
+Experiment 18
+
+✅ Implementation of Class Template
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To implement a class template in C++ that can handle different data types using a single generic class definition.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Create a class template using the syntax:
+template <class T>
+3. Define a class that contains:
+Data members of type T
+Member functions to assign and display values
+4. In the main() function:
+Create object(s) of the template class using different data types (e.g., int, float, string).
+5. Call the member functions to set and display the values.
+6. Display the output.
+7. End the program.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Program (C++ Class Template Implementation):
+
+#include <iostream>
+using namespace std;
+
+// Class Template
+template <class T>
+class Sample {
+    T a, b;
+public:
+    Sample(T x, T y) {
+        a = x;
+        b = y;
+    }
+
+    void display() {
+        cout << "Values: " << a << " and " << b << endl;
+    }
+};
+
+int main() {
+    // Object with int type
+    Sample<int> obj1(10, 20);
+    obj1.display();
+
+    // Object with float type
+    Sample<float> obj2(3.5, 7.8);
+    obj2.display();
+
+    // Object with char type
+    Sample<char> obj3('A', 'Z');
+    obj3.display();
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+Values: 10 and 20
+Values: 3.5 and 7.8
+Values: A and Z
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+Thus, the class template is successfully implemented in C++ to create objects with different data types using a single generic class.
