@@ -1,0 +1,72 @@
+Experiment 19
+
+✅ Implementation of Function Template
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To implement a function template in C++ that allows the same function to work with different data types.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Declare a function template using the syntax:
+template <class T>
+3. Define a generic function (e.g., swapValues(), add(), etc.) that works for any datatype T.
+4. In the main() function:
+Call the template function with different types such as int, float, and char.
+5. Display the result of each function call.
+6. Stop the program.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Program (C++ Function Template Implementation):
+
+Example: Function Template to Swap Two Values
+
+#include <iostream>
+using namespace std;
+
+// Function Template
+template <class T>
+void swapValues(T &x, T &y) {
+    T temp = x;
+    x = y;
+    y = temp;
+}
+
+int main() {
+    int a = 10, b = 20;
+    float p = 3.5, q = 7.8;
+    char c1 = 'A', c2 = 'Z';
+
+    cout << "Before swapping:" << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+    cout << "p = " << p << ", q = " << q << endl;
+    cout << "c1 = " << c1 << ", c2 = " << c2 << endl;
+
+    // Calling template function
+    swapValues(a, b);
+    swapValues(p, q);
+    swapValues(c1, c2);
+
+    cout << "\nAfter swapping:" << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+    cout << "p = " << p << ", q = " << q << endl;
+    cout << "c1 = " << c1 << ", c2 = " << c2 << endl;
+
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+Before swapping:
+a = 10, b = 20
+p = 3.5, q = 7.8
+c1 = A, c2 = Z
+
+After swapping:
+a = 20, b = 10
+p = 7.8, q = 3.5
+c1 = Z, c2 = A
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result:
+
+Thus, the function template is successfully implemented in C++ and demonstrated using different data types such as int, float, and char.
