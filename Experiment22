@@ -1,0 +1,62 @@
+Experiment 22
+ Implementation of Exception Handling Using Template
+
+Aim:
+
+To implement exception handling in C++ using a function template, so that the same function can validate and handle errors for different data types.
+
+Algorithm:
+
+1. Start the program.
+2. Create a function template using template <class T>.
+3. Inside the template function:
+Check for invalid conditions (e.g., division by zero).
+Use throw to raise an exception when the condition fails.
+Use try–catch to handle the exception and display an error message.
+4. In the main() function:
+Call the template function with various data types (int, float).
+5. Display the results or the exception message.
+6. End the program 
+
+Program :
+
+#include <iostream>
+using namespace std;
+// Template function for safe division
+template <class T>
+T safeDivide(T a, T b) {
+    try {
+        if (b == 0)
+            throw "Division by zero error!";
+        return a / b;
+    }
+    catch (const char *msg) {
+        cout << "Exception: " << msg << endl;
+        return 0;   // return default value
+    }
+}
+int main() {
+    // Integer division
+    cout << "Result (int): " << safeDivide<int>(10, 2) << endl;
+    cout << "Result (int): " << safeDivide<int>(10, 0) << endl;
+    // Float division
+    cout << "Result (float): " << safeDivide<float>(7.5, 2.5) << endl;
+    cout << "Result (float): " << safeDivide<float>(7.5, 0.0) << endl;
+
+    return 0;
+}
+
+Output:
+
+Result (int): 5
+Exception: Division by zero error!
+Result (int): 0
+Result (float): 3
+Exception: Division by zero error!
+Result (float): 0
+
+
+Result:
+
+The program successfully demonstrates exception handling using templates in C++.
+A single template function is used to detect and handle runtime errors (like division by zero) for multiple data types, proving the flexibility of generic programming with exception handling.
