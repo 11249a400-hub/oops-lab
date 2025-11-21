@@ -1,0 +1,82 @@
+Experiment 27
+ Minimal HTTP Server Using Boost.Beast
+
+Aim:
+
+To implement a minimal HTTP server in C++ using the Boost.Beast library that listens on a port and sends a simple HTTP response to the client (browser).
+
+Algorithm:
+
+1. Start the program.
+2. Include the required Boost.Beast and ASIO headers.
+3. Create an I/O context for network operations.
+4. Create an acceptor to listen on a specific port (e.g., 8080).
+5. Wait for a client connection using accept().
+6. Read the HTTP request using Beast’s http::read().
+7. Prepare a simple HTTP response (e.g., “Hello from Boost.Beast”).
+8. Send the response using http::write().
+9. Close the connection.
+10. Stop the program
+
+Program: 
+
+#include <boost/beast/core.hpp>
+#include <boost/beast/http.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+using tcp = boost::asio::ip::tcp;
+namespace http = boost::beast::http;
+int main() {
+    try {
+        // 1. I/O context
+        boost::asio::io_context io;
+        // 2. Acceptor to listen on port 8080
+        tcp::acceptor acceptor(io, tcp::endpoint(tcp::v4(), 8080));
+        std::cout << "Server running at http://localhost:8080\n";
+        // 3. Socket for client connection
+        tcp::socket socket(io);
+        acceptor.accept(socket);
+        // 4. Buffer and request container
+        boost::beast::flat_buffer buffer;
+        http::request<http::string_body> req;
+        // 5. Read HTTP request
+        http::read(socket, buffer, req);
+        // 6. Prepare HTTP response
+        http::response<http::string_body> res{
+            http::status::ok, req.version()};
+        res.set(http::field::server, "Boost.Beast Minimal Server");
+        res.set(http::field::content_type, "text/html");
+        res.body() = "<h1>Hello from Boost.Beast Server</h1>";
+        res.prepare_payload();
+        // 7. Write response
+        http::write(socket, res);
+        // 8. Close connection socket.shutdown(tcp::socket::shutdown_send);
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    return 0;
+}
+
+Sample Execution
+
+Compile using:
+g++ minimal_server.cpp -o server -lboost_system -lpthread
+Run:
+./server
+Open in browser:
+http://localhost:8080
+
+Output :
+Hello from Boost.Beast Server
+Displayed as a heading:
+Hello from Boost.Beast Server
+
+Console Output
+Server running at http://localhost:8080
+
+
+Result:
+
+A minimal HTTP server using Boost.Beast is successfully implemented in C++.
+The program listens on port 8080, receives an HTTP GET request, and sends back a simple HTML response, demonstrating the basic use of Boost.Beast for HTTP networking.
