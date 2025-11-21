@@ -1,0 +1,70 @@
+Experiment 25
+Map and Counting Words Using C++
+
+
+Aim:
+
+To implement a program in C++ that uses an STL map to count the frequency of words in a given text.
+
+Algorithm:
+
+1. Start the program.
+2. Include the header file <map> for using map and <sstream> for splitting text into words.
+3. Declare a map of type:
+map<string, int>
+4. Read a sentence or paragraph as input.
+5. Use stringstream to separate the sentence into individual words.
+6. For each word:
+Check if it already exists in the map.
+If yes, increase the count.
+Otherwise insert it with count = 1.
+7. Traverse the map and display each word with its frequency.
+8. End the program.
+
+
+Program: 
+
+#include <iostream>
+#include <map>
+#include <sstream>
+using namespace std;
+int main() {
+    map<string, int> wordCount;
+    string text, word;
+    cout << "Enter a sentence: ";
+    getline(cin, text);
+    stringstream ss(text);
+    // Counting words using map
+    while (ss >> word) {
+        wordCount[word]++;
+    }
+
+    // Displaying result
+    cout << "\nWord Frequency:\n";
+    for (auto &p : wordCount) {
+        cout << p.first << " : " << p.second << endl;
+    }
+
+    return 0;
+}
+
+
+Sample Input
+
+Enter a sentence: the sky is blue and the sky is wide
+
+
+Output:
+
+Word Frequency:
+and : 1
+blue : 1
+is : 2
+sky : 2
+the : 2
+wide : 1
+
+Result:
+
+Thus, the program successfully demonstrates how to use an STL map to count the frequency of words in a given text.
+The map stores each word as a key and the number of occurrences as its value, showing efficient word-counting using associative containers.
