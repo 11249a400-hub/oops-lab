@@ -1,0 +1,71 @@
+Experiment 23
+ Single Inheritance in C++
+
+Aim:
+
+To implement Single Inheritance in C++, where one derived class inherits the properties of one base class.
+
+Algorithm:
+
+1. Start the program.
+2. Create a Base Class that contains data members and a function.
+3. Create a Derived Class that inherits the base class using:
+class Derived : public Base
+4. Add additional data members or functions to the derived class.
+5. In the main() function:
+Create an object of the derived class.
+Access base class functions through the derived class object.
+6. Display the results.
+7. Stop the program.
+
+
+Program :
+
+#include <iostream>
+using namespace std;
+// Base class
+class Person {
+protected:
+    string name;
+public:
+    void getName() {
+        cout << "Enter Name: ";
+        cin >> name;
+    }
+    void showName() {
+        cout << "Name: " << name << endl;
+    }
+};
+// Derived class (Single Inheritance)
+class Student : public Person {
+private:
+    int marks;
+public:
+    void getMarks() {
+        cout << "Enter Marks: ";
+        cin >> marks;
+    }
+    void showMarks() {
+        cout << "Marks: " << marks << endl;
+    }
+};
+int main() {
+    Student s;   // Derived class object
+    s.getName();
+    s.getMarks();
+    cout << "\n--- Student Details ---" << endl;
+    s.showName();
+    s.showMarks();
+    return 0;
+}
+
+Sample Output:
+
+Enter Name: Riya
+Enter Marks: 85
+
+
+Result:
+
+Single inheritance in C++ is successfully implemented.
+The Student class inherits properties of the Person class, demonstrating how one class can reuse another class’s features
