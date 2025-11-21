@@ -1,0 +1,69 @@
+Experiment 21
+Implementation of File Handling Using Templats 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aim:
+
+To implement file handling in C++ using a function template so that the same function can write different data types (int, float, string, char) into a file.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm:
+
+1. Start the program.
+2. Include the required header <fstream> for file operations.
+3. Create a function template using:
+template <class T>
+4. Inside the function:
+Open a file using ofstream.
+Write template-type data into the file.
+Close the file.
+5. In the main() function:
+Call the template function for different data types (int, float, string).
+6. Open the file again using ifstream and read the contents.
+7. Display the data on the screen.
+8. End the program.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Program :
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+// Template function for writing data to file
+template <class T>
+void writeToFile(T data, const char *filename) {
+    ofstream fout(filename);
+    fout << data;
+    fout.close();
+}
+// Template function for reading from file
+template <class T>
+void readFromFile(const char *filename) {
+    ifstream fin(filename);
+    T data;
+    fin >> data;
+    cout << "Data read from file: " << data << endl;
+    fin.close();
+}
+int main() {
+    // Writing and reading int
+    writeToFile<int>(100, "intdata.txt");
+    readFromFile<int>("intdata.txt");
+    // Writing and reading float
+    writeToFile<float>(45.67, "floatdata.txt");
+    readFromFile<float>("floatdata.txt");
+    // Writing and reading string
+    writeToFile<string>("Hello Templates", "stringdata.txt");
+ readFromFile<string>("stringdata.txt");
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+Data read from file: 100
+Data read from file: 45.67
+Data read from file: Hello
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(Note: When reading strings separated by spaces, only the first word is read.)
+
+
+Result:
+
+Thus, file handling using C++ templates is successfully implemented. The program demonstrates how a single template function can perform file operations for different data types, increasing reusability and flexibility.
